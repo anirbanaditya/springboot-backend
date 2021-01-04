@@ -1,0 +1,31 @@
+cd D:\kubernetesdemo\
+
+docker build -t anirbanaditya/angular-app:1.0 .
+docker build -t anirbanaditya/springboot-k8s-deployment:1.0 .
+
+eval $(minikube docker-env)
+$myobject."$minikube docker-env" 
+
+docker run --name angularapp -d -p 8080:4200 angular-app:1.0
+
+kubectl apply -f mysqldb-root-credentials.yml
+kubectl apply -f mysqldb-credentials.yml
+kubectl get secrets
+kubectl apply -f mysql-configmap.yml
+kubectl get configmap
+kubectl apply -f mysql-deployment.yml
+kubectl get deployments
+kubectl get services
+kubectl get pvc
+kubectl apply -f deployment.yml
+kubectl get deployments
+kubectl get services
+minikube service springboot-k8s-mysql
+
+=== angular=====
+kubectl apply -f deployment.yml
+kubectl get deployments
+kubectl get services
+kubectl get pods
+minikube service angular-k8s-service
+
